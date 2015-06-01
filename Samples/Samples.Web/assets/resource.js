@@ -1,0 +1,1 @@
+﻿console.log("A JavaScript resource file.");
