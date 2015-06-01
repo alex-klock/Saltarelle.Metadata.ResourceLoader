@@ -1,7 +1,7 @@
 # Saltarelle.Metadata.ResourceLoader
 Resource Loader (englercj/resource-loader) bindings for the <a href="http://www.saltarelle-compiler.com/" target="_blank">Saltarelle C# to JavaScript compiler</a>.
 
-See https://github.com/englercj/resource-loader for official JavaScript library.
+See https://github.com/englercj/resource-loader for official JavaScript library, a middleware-style generic resource loader built with web games in mind.
 
 Example:
 
@@ -82,15 +82,20 @@ Example:
             });
         }
 
+        /// <summary>
+        /// Gets or sets the element that messages can be written to.
+        /// </summary>
         static Element LogElement
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Returns a middleware function.
+        /// </summary>
         static Func<Action<Resource, Action>> BeforeMiddleware = () =>
         {
-            Console.WriteLine("Not sure what's going on...");
             return (resource, next) =>
             {
                 WriteLog("BeforeMiddleware: " + resource.Name);
@@ -98,6 +103,9 @@ Example:
             };
         };
 
+        /// <summary>
+        /// Returns a middleware function.
+        /// </summary>
         static Func<Action<Resource, Action>> AfterMiddleware = () =>
         {
             return (resource, next) =>
@@ -107,6 +115,10 @@ Example:
             };
         };
 
+        /// <summary>
+        /// Writes a message as an appended element to #LoadedLog.
+        /// </summary>
+        /// <param name="message">The message to write.</param>
         static void WriteLog(string message)
         {
             var element = Document.CreateElement("div");
@@ -115,6 +127,7 @@ Example:
             LogElement.AppendChild(element);
         }
     }
-
+    
 For CommonJS projects, use Saltarelle.Metadata.ResourceLoader (uses the npm package "resource-loader").
+
 For projects using the stand alone version of resource loader, use Saltarelle.Metadata.ResourceLoader.StandAlone.
