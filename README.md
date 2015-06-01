@@ -1,5 +1,5 @@
 # Saltarelle.Metadata.ResourceLoader
-Resource Loader (englercj/resource-loader) bindings for the Saltarelle C# to Javascript compiler.
+Resource Loader (englercj/resource-loader) bindings for the <a href="http://www.saltarelle-compiler.com/" target="_blank">Saltarelle C# to JavaScript compiler</a>.
 
 See https://github.com/englercj/resource-loader for official JavaScript library.
 
